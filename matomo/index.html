@@ -18,15 +18,18 @@
 <body>
   <h1>Bienvenue sur la page avec Content Tracking Matomo</h1>
 
-  <!-- Élément suivi par Matomo Content Tracking -->
-  <div
-    data-matomo-title="Impression de contenu Matomo"
-    data-matomo-visible="true"
-    data-matomo-tracker-url="https://analytics.ronan-chardonneau.fr/matomo.php"
-    data-matomo-site-id="1"
-    data-matomo-media-name="Div de contenu suivi"
-    data-matomo-media-type="contenu">
-    <p>Ce contenu est suivi par Matomo pour mesurer les impressions.</p>
+  <!-- Élément de contenu suivi par Matomo -->
+  <div 
+    data-track-content 
+    data-content-name="Bloc d'information" 
+    data-content-piece="Image d'accueil" 
+    data-content-target="https://example.com/cta" 
+    data-content-ignoreinteraction>
+    <h2>Ce contenu est suivi par Matomo</h2>
+    <p>Ce bloc de contenu est conçu pour suivre une impression via Matomo. L'image et le texte ici sont pris en compte pour le suivi.</p>
+    <img src="https://via.placeholder.com/300x150" alt="Image d'accueil" />
+    <a href="https://example.com/cta">Découvrez plus</a>
   </div>
+
 </body>
 </html>
