@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page avec Matomo Content Tracking</title>
+  <title>Page avec Matomo Content Tracking et Formulaire</title>
   <!-- Matomo Tag Manager -->
   <script>
     var _mtm = window._mtm = window._mtm || [];
@@ -16,7 +16,7 @@
   <!-- End Matomo Tag Manager -->
 </head>
 <body>
-  <h1>Bienvenue sur la page avec Content Tracking Matomo</h1>
+  <h1>Bienvenue sur la page avec Content Tracking Matomo et Formulaire</h1>
 
   <!-- Élément de contenu suivi par Matomo -->
   <div 
@@ -30,6 +30,21 @@
     <img src="https://via.placeholder.com/300x150" alt="Image d'accueil" />
     <a href="https://example.com/cta">Découvrez plus</a>
   </div>
+
+  <!-- Formulaire simple -->
+  <h2>Formulaire de contact</h2>
+  <form action="/submit" method="post">
+    <label for="name">Nom :</label><br>
+    <input type="text" id="name" name="name" placeholder="Votre nom" required><br><br>
+
+    <label for="email">Email :</label><br>
+    <input type="email" id="email" name="email" placeholder="Votre email" required><br><br>
+
+    <label for="message">Message :</label><br>
+    <textarea id="message" name="message" placeholder="Votre message" rows="4" required></textarea><br><br>
+
+    <button type="submit">Envoyer</button>
+  </form>
 
 </body>
 </html>
