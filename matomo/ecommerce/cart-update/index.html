@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Update Feature - Matomo</title>
+</head>
+<body>
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://analytics.ronan-chardonneau.fr/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+
+    <h1>Product Cart Update</h1>
+    <div>
+        <h2>Products</h2>
+        <div>
+            <h3>Book 1</h3>
+            <p>Price: $10.99</p>
+            <button onclick="addToCart('001', 'Book 1', ['Books', 'Best sellers'], 10.99)">Add to Cart</button>
+            <button onclick="removeFromCart('001')">Remove from Cart</button>
+        </div>
+        <div>
+            <h3>Book 2</h3>
+            <p>Price: $15.99</p>
+            <button onclick="addToCart('002', 'Book 2', ['Books', 'New Releases'], 15.99)">Add to Cart</button>
+            <button onclick="removeFromCart('002')">Remove from Cart</button>
+        </div>
+        <div>
+            <h3>Magazine</h3>
+            <p>Price: $5.99</p>
+            <button onclick="addToCart('003', 'Magazine', ['Magazines', 'Monthly'], 5.99)">Add to Cart</button>
+            <button onclick="removeFromCart('003')">Remove from Cart</button>
+        </div>
+    </div>
+
+    <div>
+        <h2>Cart</h2>
+        <ul id="cart"></ul>
+        <p>Total: $<span id="total">0.00</span></p>
+        <button onclick="updateCart()">Update Cart</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="showCartItems()">Show Cart Items</button>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0.0;
+
+        function addToCart(sku, name, category, price) {
+            cart.push({sku, name, category, price, quantity: 1});
+            updateCartDisplay();
+        }
+
+        function removeFromCart(sku) {
+            cart = cart.filter(item => item.sku !== sku);
+            _paq.push(['removeEcommerceItem', sku]);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartList = document.getElementById('cart');
+            cartList.innerHTML = '';
+            total = 0.0;
+
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+                cartList.appendChild(li);
+            });
+
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        function updateCart() {
+            cart.forEach(item => {
+                _paq.push(['addEcommerceItem',
+                    item.sku,
+                    item.name,
+                    item.category,
+                    item.price,
+                    item.quantity
+                ]);
+            });
+
+            _paq.push(['trackEcommerceCartUpdate', total]);
+        }
+
+        function clearCart() {
+            cart = [];
+            _paq.push(['clearEcommerceCart']);
+            updateCartDisplay();
+        }
+
+        function showCartItems() {
+            const items = _paq.push(['getEcommerceItems']);
+            console.log(items);
+            alert(JSON.stringify(items, null, 2));
+        }
+    </script>
+</body>
+</html>
