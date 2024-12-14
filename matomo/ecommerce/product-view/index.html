@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page - Ecommerce Analytics Book</title>
+</head>
+<body>
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://analytics.ronan-chardonneau.fr/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+
+        // Push Product View Data to Matomo - Populate parameters dynamically
+        _paq.push(['setEcommerceView',
+            "0123456789", // (Required) productSKU
+            "Ecommerce Analytics Book", // (Optional) productName
+            "Books", // (Optional) categoryName
+            9.99 // (Optional) price
+        ]);
+        _paq.push(['trackPageView']);
+    </script>
+    <!-- End Matomo Code -->
+
+    <h1>Ecommerce Analytics Book</h1>
+    <p>Category: Books</p>
+    <p>Price: $9.99</p>
+    <button onclick="purchaseProduct()">Buy Now</button>
+
+    <script>
+        function purchaseProduct() {
+            // Product Array
+            _paq.push(['addEcommerceItem',
+                "01234567890", // (required) SKU: Product unique identifier
+                "Ecommerce Analytics Book", // (optional) Product name
+                "Books", // (optional) Product category
+                9.99, // (Recommended) Product Price
+                1 // (Optional - Defaults to 1)
+            ]);
+
+            // Order Array - Parameters should be generated dynamically
+            _paq.push(['trackEcommerceOrder',
+                "000123", // (Required) orderId
+                10.99, // (Required) grandTotal (revenue)
+                9.99, // (Optional) subTotal
+                1.5, // (optional) tax
+                1, // (optional) shipping
+                false // (optional) discount
+            ]);
+        }
+    </script>
+</body>
+</html>
