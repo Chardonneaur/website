@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Page - Books</title>
+</head>
+<body>
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+
+      _paq.push(['setEcommerceView',
+            false, // Product name is not applicable for a category view.
+            false, // Product SKU is not applicable for a category view.
+            "Books" // (Optional) Product category, or array of up to 5 categories
+        ]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://analytics.ronan-chardonneau.fr/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+
+    
+    </script>
+    <!-- End Matomo Code -->
+
+    <h1>Category: Books</h1>
+    <p>Explore our wide range of books.</p>
+
+    <!-- Product 1 -->
+    <div>
+        <h2>Book 1</h2>
+        <p>Price: $10.99</p>
+        <button onclick="purchaseProduct('001', 'Book 1', 'Books', 10.99)">Buy Now</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div>
+        <h2>Book 2</h2>
+        <p>Price: $15.99</p>
+        <button onclick="purchaseProduct('002', 'Book 2', 'Books', 15.99)">Buy Now</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div>
+        <h2>Magazine</h2>
+        <p>Price: $5.99</p>
+        <button onclick="purchaseProduct('003', 'Magazine', 'Magazines', 5.99)">Buy Now</button>
+    </div>
+
+    <script>
+        function purchaseProduct(sku, name, category, price) {
+            // Add product to ecommerce order
+            _paq.push(['addEcommerceItem',
+                sku, // (required) SKU: Product unique identifier
+                name, // (optional) Product name
+                category, // (optional) Product category
+                price, // (Recommended) Product Price
+                1 // (Optional - Defaults to 1)
+            ]);
+
+            // Track ecommerce order
+            _paq.push(['trackEcommerceOrder',
+                "ORDER" + new Date().getTime(), // (Required) orderId
+                price, // (Required) grandTotal (revenue)
+                price, // (Optional) subTotal
+                0, // (optional) tax
+                0, // (optional) shipping
+                false // (optional) discount
+            ]);
+        }
+    </script>
+</body>
+</html>
