@@ -86,6 +86,7 @@
         }
 
         function updateCart() {
+            _paq.push(['clearEcommerceCart']);
             cart.forEach(item => {
                 _paq.push(['addEcommerceItem',
                     item.sku,
@@ -106,12 +107,13 @@
         }
 
         function showCartItems() {
-            const items = _paq.push(['getEcommerceItems']);
+            const items = cart; // Use the local cart array
             console.log(items);
             alert(JSON.stringify(items, null, 2));
         }
 
         function executeTransaction() {
+            updateCart(); // Ensure the cart is updated in Matomo before executing the transaction
             const orderId = "ORDER" + new Date().getTime();
             _paq.push(['trackEcommerceOrder',
                 orderId, // (Required) orderId
