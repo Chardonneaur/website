@@ -52,6 +52,7 @@
         <button onclick="updateCart()">Update Cart</button>
         <button onclick="clearCart()">Clear Cart</button>
         <button onclick="showCartItems()">Show Cart Items</button>
+        <button onclick="executeTransaction()">Execute Transaction</button>
     </div>
 
     <script>
@@ -108,6 +109,19 @@
             const items = _paq.push(['getEcommerceItems']);
             console.log(items);
             alert(JSON.stringify(items, null, 2));
+        }
+
+        function executeTransaction() {
+            const orderId = "ORDER" + new Date().getTime();
+            _paq.push(['trackEcommerceOrder',
+                orderId, // (Required) orderId
+                total, // (Required) grandTotal (revenue)
+                total, // (Optional) subTotal
+                0, // (optional) tax
+                0, // (optional) shipping
+                false // (optional) discount
+            ]);
+            alert("Transaction executed with Order ID: " + orderId + " and Total: $" + total.toFixed(2));
         }
     </script>
 </body>
