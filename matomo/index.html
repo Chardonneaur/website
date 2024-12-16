@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page avec Matomo Form Tracking</title>
 
-  <!-- Matomo Tag Manager -->
-  <script>
-    var _mtm = window._mtm = window._mtm || [];
-    _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-    (function() {
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src='https://analytics.ronan-chardonneau.fr/js/container_AmwGHHUH.js'; 
-      s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Matomo Tag Manager -->
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://ronanchardonneau.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '129']);
+    
+  })();
+</script>
+<script src="https://cdn.matomo.cloud/ronanchardonneau.matomo.cloud/matomo.js"></script>
+<!-- End Matomo Code -->
+
 
 </head>
 <body>
