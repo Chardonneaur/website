@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matomo Tracking</title>
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://analytics.ronan-chardonneau.fr/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '6']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+</head>
+<body>
+    <h1>Matomo Custom Dimension Tracking</h1>
+    <button id="undefinedButton">Set Undefined Value</button>
+    <button id="emptyButton">Set Empty Value</button>
+
+    <script>
+      function setUndefinedValue() {
+        // Simulate a JavaScript bug by not defining the dimension value
+        var buggyValue;
+        _paq.push(['setCustomDimension', 1, buggyValue]);
+        alert("Undefined value set for custom dimension due to JS bug");
+      }
+
+      function setEmptyValue() {
+        _paq.push(['setCustomDimension', 1, '']);
+        alert("Empty value set for custom dimension");
+      }
+
+      document.getElementById('undefinedButton').addEventListener('click', setUndefinedValue);
+      document.getElementById('emptyButton').addEventListener('click', setEmptyValue);
+    </script>
+</body>
+</html>
