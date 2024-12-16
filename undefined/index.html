@@ -27,16 +27,13 @@
 
     <script>
       function setUndefinedValue() {
-        // Simulate a JavaScript bug by not defining the dimension value
         var buggyValue;
-        _paq.push(['setCustomDimension', 1, buggyValue]);
-        _paq.push(['trackEvent', 'CustomDimension', 'Set', 'Undefined']);
+        _paq.push(['trackEvent', 'CustomDimension', 'Set', 'Undefined', null, {dimension1: buggyValue}]);
         alert("Undefined value set for custom dimension due to JS bug");
       }
 
       function setEmptyValue() {
-        _paq.push(['setCustomDimension', 1, '']);
-        _paq.push(['trackEvent', 'CustomDimension', 'Set', 'Empty']);
+        _paq.push(['trackEvent', 'CustomDimension', 'Set', 'Empty', null, {dimension1: ''}]);
         alert("Empty value set for custom dimension");
       }
 
