@@ -30,11 +30,13 @@
         // Simulate a JavaScript bug by not defining the dimension value
         var buggyValue;
         _paq.push(['setCustomDimension', 1, buggyValue]);
+        _paq.push(['trackEvent', 'CustomDimension', 'Set', 'Undefined']);
         alert("Undefined value set for custom dimension due to JS bug");
       }
 
       function setEmptyValue() {
         _paq.push(['setCustomDimension', 1, '']);
+        _paq.push(['trackEvent', 'CustomDimension', 'Set', 'Empty']);
         alert("Empty value set for custom dimension");
       }
 
