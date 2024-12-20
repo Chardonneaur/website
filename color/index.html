@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker Example</title>
+</head>
+<body>
+
+<h1>Choose a Color</h1>
+
+<!-- Color Picker Input -->
+<input type="color" id="colorPicker" name="colorPicker" value="#ff0000">
+
+<p>Selected Color: <span id="selectedColor">#ff0000</span></p>
+
+<script>
+    // Get references to the color picker input and the span where the color code will be displayed
+    const colorPicker = document.getElementById('colorPicker');
+    const selectedColor = document.getElementById('selectedColor');
+
+    // Listen for color change
+    colorPicker.addEventListener('input', (event) => {
+        // Update the displayed color code
+        selectedColor.textContent = event.target.value;
+    });
+</script>
+
+</body>
+</html>
