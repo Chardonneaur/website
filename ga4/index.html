@@ -5,50 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Page - T-Shirt</title>
 
-  <!-- GA4 Configuration -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <!-- Google Tag Manager -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-XXXXXXX'); // Replace with your GA4 Measurement ID
-
-    // Function to send a product view event
-    function trackProductView(product) {
-      gtag('event', 'view_item', {
-        currency: product.currency, // e.g., 'USD'
-        value: product.value, // e.g., 29.99
-        items: [
-          {
-            item_id: product.id, // e.g., 'P12345'
-            item_name: product.name, // e.g., 'T-Shirt'
-            item_brand: product.brand, // e.g., 'BrandName'
-            item_category: product.category, // e.g., 'Apparel'
-            item_variant: product.variant, // e.g., 'Blue'
-            price: product.price, // e.g., 29.99
-          },
-        ],
-      });
-    }
-
-    // Example usage: Call the function when a product page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      const product = {
-        id: 'P12345',
-        name: 'T-Shirt',
-        brand: 'BrandName',
-        category: 'Apparel',
-        variant: 'Blue',
-        price: 29.99,
-        currency: 'USD',
-        value: 29.99,
-      };
-      trackProductView(product);
-    });
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX'); // Replace GTM-XXXXXXX with your GTM ID
   </script>
+  <!-- End Google Tag Manager -->
 
   <!-- Matomo Tag Manager -->
   <script>
@@ -60,8 +25,36 @@
     })();
   </script>
   <!-- End Matomo Tag Manager -->
+
+  <script>
+    // Push product details to the GTM dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'view_item',
+      'ecommerce': {
+        'currencyCode': 'USD',
+        'detail': {
+          'products': [
+            {
+              'id': 'P12345',
+              'name': 'T-Shirt',
+              'brand': 'BrandName',
+              'category': 'Apparel',
+              'variant': 'Blue',
+              'price': 29.99
+            }
+          ]
+        }
+      }
+    });
+  </script>
 </head>
 <body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <header>
     <h1>Welcome to Our Store</h1>
