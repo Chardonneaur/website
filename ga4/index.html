@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page - T-Shirt</title>
+
+  <!-- GA4 Configuration -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXX'); // Replace with your GA4 Measurement ID
+
+    // Function to send a product view event
+    function trackProductView(product) {
+      gtag('event', 'view_item', {
+        currency: product.currency, // e.g., 'USD'
+        value: product.value, // e.g., 29.99
+        items: [
+          {
+            item_id: product.id, // e.g., 'P12345'
+            item_name: product.name, // e.g., 'T-Shirt'
+            item_brand: product.brand, // e.g., 'BrandName'
+            item_category: product.category, // e.g., 'Apparel'
+            item_variant: product.variant, // e.g., 'Blue'
+            price: product.price, // e.g., 29.99
+          },
+        ],
+      });
+    }
+
+    // Example usage: Call the function when a product page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const product = {
+        id: 'P12345',
+        name: 'T-Shirt',
+        brand: 'BrandName',
+        category: 'Apparel',
+        variant: 'Blue',
+        price: 29.99,
+        currency: 'USD',
+        value: 29.99,
+      };
+      trackProductView(product);
+    });
+  </script>
+
+  <!-- Matomo Tag Manager -->
+  <script>
+    var _mtm = window._mtm = window._mtm || [];
+    _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+    (function() {
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src='https://cdn.matomo.cloud/ronanchardonneau.matomo.cloud/container_uxtDZ4PL.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Tag Manager -->
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Our Store</h1>
+  </header>
+
+  <main>
+    <section class="product-details">
+      <h2>T-Shirt</h2>
+      <p>Brand: BrandName</p>
+      <p>Category: Apparel</p>
+      <p>Variant: Blue</p>
+      <p>Price: $29.99</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your Store. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
