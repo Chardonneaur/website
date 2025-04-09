@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demande de Devis - Compagnie d'Assurances</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    .step { display: none; margin-top: 2rem; }
+    .step.active { display: block; }
+    button { margin: 0.5rem 0; padding: 0.75rem 1.5rem; font-size: 1rem; }
+  </style>
+  <!-- Matomo Tag Manager -->
+<script>
+  var _mtm = window._mtm = window._mtm || [];
+  _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+  (function() {
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://cdn.matomo.cloud/ronanchardonneau.matomo.cloud/container_T75KBLkC.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Tag Manager -->
+</head>
+<body>
+  <h1>Demande de devis en plusieurs étapes</h1>
+
+  <div id="step-1" class="step active">
+    <h2>Étape 1 : Choisissez un type d'assurance</h2>
+    <button 
+      data-mtm-category="devis" 
+      data-mtm-action="clic" 
+      data-mtm-name="assurance_auto"
+      onclick="document.querySelectorAll('.step').forEach(s => s.classList.remove('active')); document.getElementById('step-2').classList.add('active'); window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
+      Assurance Auto
+    </button>
+    <button 
+      data-mtm-category="devis" 
+      data-mtm-action="clic" 
+      data-mtm-name="assurance_habitation"
+      onclick="document.querySelectorAll('.step').forEach(s => s.classList.remove('active')); document.getElementById('step-2').classList.add('active'); window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
+      Assurance Habitation
+    </button>
+  </div>
+
+  <div id="step-2" class="step">
+    <h2>Étape 2 : Renseignez vos informations</h2>
+    <form id="form-step-2">
+      <label>Nom : <input type="text" name="nom" required></label><br><br>
+      <label>Email : <input type="email" name="email" required></label><br><br>
+      <button type="button"
+        data-mtm-category="devis" 
+        data-mtm-action="clic" 
+        data-mtm-name="suivant_infos"
+        onclick="document.querySelectorAll('.step').forEach(s => s.classList.remove('active')); document.getElementById('step-3').classList.add('active'); window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
+        Suivant
+      </button>
+    </form>
+  </div>
+
+  <div id="step-3" class="step">
+    <h2>Étape 3 : Confirmation</h2>
+    <p>Merci pour votre demande. Nous vous contacterons prochainement.</p>
+    <button 
+      data-mtm-category="devis" 
+      data-mtm-action="clic" 
+      data-mtm-name="terminer"
+      onclick="window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
+      Terminer
+    </button>
+  </div>
+</body>
+</html>
