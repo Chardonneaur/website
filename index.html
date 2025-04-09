@@ -27,16 +27,16 @@
   <div id="step-1" class="step active">
     <h2>Étape 1 : Choisissez un type d'assurance</h2>
     <button 
-      data-mtm-category="devis" 
-      data-mtm-action="clic" 
-      data-mtm-name="assurance_auto"
+      data-mtmcategory="devis" 
+      data-mtmaction="clic" 
+      data-mtmname="assurance_auto"
       onclick="document.querySelectorAll('.step').forEach(s => s.classList.remove('active')); document.getElementById('step-2').classList.add('active'); window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
       Assurance Auto
     </button>
     <button 
-      data-mtm-category="devis" 
-      data-mtm-action="clic" 
-      data-mtm-name="assurance_habitation"
+      data-mtmcategory="devis" 
+      data-mtmaction="clic" 
+      data-mtmname="assurance_habitation"
       onclick="document.querySelectorAll('.step').forEach(s => s.classList.remove('active')); document.getElementById('step-2').classList.add('active'); window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
       Assurance Habitation
     </button>
@@ -48,9 +48,9 @@
       <label>Nom : <input type="text" name="nom" required></label><br><br>
       <label>Email : <input type="email" name="email" required></label><br><br>
       <button type="button"
-        data-mtm-category="devis" 
-        data-mtm-action="clic" 
-        data-mtm-name="suivant_infos"
+        data-mtmcategory="devis" 
+        data-mtmaction="clic" 
+        data-mtmname="suivant_infos"
         onclick="document.querySelectorAll('.step').forEach(s => s.classList.remove('active')); document.getElementById('step-3').classList.add('active'); window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
         Suivant
       </button>
@@ -61,9 +61,9 @@
     <h2>Étape 3 : Confirmation</h2>
     <p>Merci pour votre demande. Nous vous contacterons prochainement.</p>
     <button 
-      data-mtm-category="devis" 
-      data-mtm-action="clic" 
-      data-mtm-name="terminer"
+      data-mtmcategory="devis" 
+      data-mtmaction="clic" 
+      data-mtmname="terminer"
       onclick="window._mtm = window._mtm || []; window._mtm.push({ event: 'interaction_bouton' });">
       Terminer
     </button>
