@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Administration Tax Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-section {
+      margin-bottom: 2rem;
+    }
+
+    .form-section h2 {
+      color: #444;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .form-image {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .form-image img {
+      width: 200px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="https://images.unsplash.com/photo-1573164713347-df1e00507f58" alt="Government Form">
+    </div>
+    <h1>Public Sector Tax Form 2025</h1>
+
+    <form>
+      <div class="form-section">
+        <h2>Personal Information</h2>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname">
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob">
+
+        <label for="ssn">Social Security Number</label>
+        <input type="text" id="ssn" name="ssn">
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address"></textarea>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+
+      <div class="form-section">
+        <h2>Employment & Income</h2>
+        <label for="employer">Employer Name</label>
+        <input type="text" id="employer" name="employer">
+
+        <label for="income">Annual Income</label>
+        <input type="number" id="income" name="income">
+
+        <label for="tax-paid">Tax Paid</label>
+        <input type="number" id="tax-paid" name="tax-paid">
+      </div>
+
+      <div class="form-section">
+        <h2>Deductions</h2>
+        <label for="deduction-type">Type of Deduction</label>
+        <select id="deduction-type" name="deduction-type">
+          <option value="charity">Charity</option>
+          <option value="education">Education</option>
+          <option value="medical">Medical</option>
+          <option value="mortgage">Mortgage Interest</option>
+        </select>
+
+        <label for="deduction-amount">Deduction Amount</label>
+        <input type="number" id="deduction-amount" name="deduction-amount">
+      </div>
+
+      <div class="form-section">
+        <h2>Declaration</h2>
+        <label>
+          <input type="checkbox" name="agree" required>
+          I hereby declare that the information provided is true and correct.
+        </label>
+      </div>
+
+      <div class="form-section">
+        <button type="submit">Submit Form</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
