@@ -1,0 +1,45 @@
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+
+  // Optional: Custom dimension at the action level (scope: action → ID 1 used here)
+  // Use the discount name as the value, e.g. "SUMMER25"
+  _paq.push(['setCustomDimension', 1, 'FREE SHIPPING']);
+
+  // Add eCommerce items (must be called before trackEcommerceOrder)
+  _paq.push(['addEcommerceItem',
+    "SKU-001",         // SKU
+    "Product One",     // Product name
+    "Category A",      // Category
+    49.99,             // Price per unit
+    1                  // Quantity
+  ]);
+
+  _paq.push(['addEcommerceItem',
+    "SKU-002",
+    "Product Two",
+    "Category B",
+    59.99,
+    1
+  ]);
+
+  // Track the eCommerce order
+  _paq.push(['trackEcommerceOrder',
+    "ORDER-12345",     // Order ID
+    109.98,            // Grand Total (subtotal + shipping + tax - discount)
+    119.98,            // Subtotal (before discount)
+    5.00,              // Tax
+    10.00,             // Shipping
+    10.00              // Discount (numeric, as you requested)
+  ]);
+
+  // Final tracking setup
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//ronan-chardonneau.online/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);  // Replace with your actual site ID
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
